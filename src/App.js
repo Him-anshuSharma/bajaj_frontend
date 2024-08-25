@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function App() {
   const [jsonInput, setJsonInput] = useState('');
   const [response, setResponse] = useState(null);
   const [selectedOptions, setSelectedOptions] = useState([]);
+
+  useEffect(() => {
+    if (response && response.roll_number) {
+      document.title = `Roll Number: ${response.roll_number}`;
+    } else {
+      document.title = 'BFHL Challenge';
+    }
+  }, [response]);
 
   const handleSubmit = async () => {
     try {
