@@ -10,7 +10,7 @@ function App() {
     try {
       const parsedJson = JSON.parse(jsonInput);
       console.log(parsedJson);
-      const res = await axios.post('http://127.0.0.1:5000/bfhl', parsedJson);
+      const res = await axios.post('https://bajaj-backend-xu4g.onrender.com', parsedJson);
       setResponse(res.data);
     } catch (error) {
       alert('Invalid JSON or server error');
